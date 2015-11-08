@@ -92,7 +92,7 @@ def getinfo(uniqueid):
           </TravelItineraryReadRQ>
        <ns:SessionCreateRQ xmlns:ns="http://www.opentravel.org/OTA/2002/11"><ns:POS/></ns:SessionCreateRQ></SOAP-ENV:Body>
     </SOAP-ENV:Envelope>"""
-    token = gettoken(7971, 'dev2016', '3YAB')
+    token = gettoken(1234, 'fdfdfsdfs', 'fafdgsdfgsgsg')
     r = sendpayload(payload.format(token=token, id=uniqueid))
     parsed = xmltodict.parse(r.text)
     try:
