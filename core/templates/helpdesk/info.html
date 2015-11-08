@@ -1,0 +1,15 @@
+<div style="font-family: 'Courier New', courier, monospace; overflow: auto; padding: 5px; background-color: black;">
+    <div style="color: lightgreen;">
+    {% if info.error %}
+    <div>
+        {{ info.error }}
+    </div>
+    {% else %}
+        {% for k, v in info.items %}
+            {% with key=k value=v template_name="helpdesk/render_node.html" %}
+                {% include template_name %}
+            {% endwith %}
+        {% endfor %}
+    {% endif %}
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{% load sabre %}
+{% if value|is_type:'list' %}
+    {% for item in value %}
+        {% with forloop.counter|mklabel:key as label %}
+            {% with key=label value=item template_name="helpdesk/render_node.html" %}
+                {% include template_name %}
+            {% endwith %}
+        {% endwith %}
+    {% endfor %}
+{% else %}
+    <li><b>{{ key|humanize }}: </b>
+        {% if value|is_type:'OrderedDict' %}
+            <ul>
+             {%for k, v in value.items %}
+                  {%with key=k value=v template_name="helpdesk/render_node.html" %}
+                       {% include template_name %}
+                  {% endwith %}
+             {% endfor %}
+             </ul>
+        {% else %}
+            {{ value }}
+        {% endif %}
+    </li>
+{% endif %}

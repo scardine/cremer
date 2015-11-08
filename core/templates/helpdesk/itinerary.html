@@ -1,0 +1,22 @@
+<div class="padding center">
+    <script>
+        function query_itinerary(el) {
+            var el = jet.jQuery('#id_unique_id');
+            jet.jQuery.ajax({
+                url: '/helpdesk/get-itinerary/' + el.val(),
+                success: function(data, status) {
+                    jet.jQuery(data).dialog({
+                        autoOpen: true,
+                        minWidth: 600,
+                        maxHeight: 300,
+                        title: 'SABRE - GetInitinerary - ' + el.val()
+                    })
+                }
+            })
+        }
+    </script>
+    <form>
+        <input type="text" name="unique_id" id="id_unique_id">
+        <button type="button" class="button" onclick="query_itinerary(this)">Search</button>
+    </form>
+</div>

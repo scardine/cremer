@@ -1,0 +1,42 @@
+<div>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawChart);
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['Qty', 'Ticket type'],
+                ['Support',     21],
+                ['Billing',     56],
+            ]);
+
+            var options = {
+                title: 'My Daily Activities'
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+        }
+    </script>
+    <div class="padding center">
+        <ul class="inline bordered">
+                <li>
+                    <div class="big">21</div>
+                    <div>support</div>
+                </li>
+
+                <li>
+                    <div class="big">56</div>
+                    <div>billing</div>
+                </li>
+
+                <li>
+                    <div class="big">2134</div>
+                    <div>closed</div>
+                </li>
+        </ul>
+    </div>
+    <div id="piechart" style="height: 300px;"></div>
+</div>

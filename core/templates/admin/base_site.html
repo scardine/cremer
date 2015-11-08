@@ -1,0 +1,16 @@
+{% extends "admin/base.html" %}
+{% load static i18n %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <img src="{% static 'img/logo_icon.png' %}" alt="logo" style="margin-left: 30px">
+        {% trans "CREMER" %}
+    </h1>
+{% endblock %}
+
+{% block userlinks %}
+    <li class="top-user-tools-user-link">
+        <span class="top-user-tools-user-link-icon icon-exit"></span> <a href="{% url 'admin:logout' %}">{% trans 'Log out' %}</a>
+    </li>
+{% endblock %}
+
